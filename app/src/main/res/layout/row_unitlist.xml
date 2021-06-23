@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_margin="@dimen/height_width_5">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUnitName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/font_14"
+        android:textColor="@color/purple_700"
+        android:padding="@dimen/height_width_5"
+        android:text="Unit A 101"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvStepName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/font_11"
+        android:textColor="@color/teal_200"
+        android:text="Step Name:In Review"
+        android:paddingLeft="@dimen/height_width_5"
+        android:paddingRight="@dimen/height_width_5"
+        android:layout_marginTop="@dimen/height_width_5"
+        app:layout_constraintTop_toBottomOf="@+id/tvUnitName"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvActivityName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/font_14"
+        android:textColor="@color/purple_500"
+        android:text="Step Name:In Review"
+        android:padding="@dimen/height_width_3"
+        app:layout_constraintTop_toBottomOf="@+id/tvStepName"
+        app:layout_constraintEnd_toStartOf="@+id/tvDays"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_14"
+        android:textColor="@color/textpress"
+        android:text="02 D."
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/height_width_5"
+        android:padding="@dimen/height_width_5"
+        app:layout_constraintTop_toTopOf="@+id/tvActivityName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvActivityName"
+        app:layout_constraintStart_toEndOf="@+id/tvActivityName"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPercentage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/font_11"
+        android:textColor="@color/purple_500"
+        android:text="20%"
+        android:paddingLeft="@dimen/height_width_5"
+        android:paddingRight="@dimen/height_width_5"
+        android:layout_marginTop="@dimen/height_width_5"
+        app:layout_constraintTop_toBottomOf="@+id/tvActivityName"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

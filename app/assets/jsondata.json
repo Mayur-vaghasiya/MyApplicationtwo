@@ -1,0 +1,180 @@
+[
+  {
+    "name": "Block A",
+    "units": [
+      {
+        "name": "Unit A 101",
+        "activities": [
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      },
+      {
+        "name": "Unit A 102",
+        "activities": [
+          {
+            "name": "activity222",
+            "stepName": "In Review",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity223",
+            "stepName": "In Review",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      },
+      {
+        "name": "Unit A 103",
+        "activities": [
+          {
+            "name": "activity232",
+            "stepName": "In Review",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity2233",
+            "stepName": "Started",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Block B",
+    "units": [
+      {
+        "name": "Unit B 1011",
+        "activities": [
+          {
+            "name": "activity1",
+            "stepName": "Completed",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity1",
+            "stepName": "Started",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      },
+      {
+        "name": "Unit B 201",
+        "activities": [
+          {
+            "name": "activity41",
+            "stepName": "Done",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity14",
+            "stepName": "In Review",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      },
+      {
+        "name": "Unit B 202",
+        "activities": [
+          {
+            "name": "activity15",
+            "stepName": "In Review",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity166",
+            "stepName": "In Review",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Block C",
+    "units": [
+      {
+        "name": "Unit C 203",
+        "activities": [
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Block D",
+    "units": [
+      {
+        "name": "Unit D 1013",
+        "activities": [
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Block E",
+    "units": [
+      {
+        "name": "Unit E 1014",
+        "activities": [
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 5,
+            "completionStatus": 20
+          },
+          {
+            "name": "activity1",
+            "stepName": "In Review",
+            "totalDays": 8,
+            "completionStatus": 30
+          }
+        ]
+      }
+    ]
+  }
+]
