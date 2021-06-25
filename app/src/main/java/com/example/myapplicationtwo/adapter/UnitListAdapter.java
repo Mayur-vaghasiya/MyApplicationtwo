@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplicationtwo.R;
 import com.example.myapplicationtwo.model.UnitModel;
 
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -22,9 +21,9 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.Employ
     private ArrayList<UnitModel.Unit> unitList = null;
     private ArrayList<UnitModel.Unit> listfriOrigin;
 
-    public UnitListAdapter(WeakReference<Context> context, ArrayList<UnitModel.Unit> countryList) {
+    public UnitListAdapter(WeakReference<Context> context, ArrayList<UnitModel.Unit> unitList) {
         this.context = context.get();
-        this.unitList = countryList;
+        this.unitList = unitList;
         this.listfriOrigin = new ArrayList<UnitModel.Unit>();
         this.listfriOrigin.addAll(unitList);
     }
@@ -58,8 +57,7 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.Employ
             unitList.addAll(listfriOrigin);
         } else {
             for (UnitModel.Unit wp : listfriOrigin) {
-                if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) ||
-                        wp.getName().toUpperCase(Locale.getDefault()).contains(charText)) {
+                if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) ) {
                     unitList.add(wp);
                 }
             }

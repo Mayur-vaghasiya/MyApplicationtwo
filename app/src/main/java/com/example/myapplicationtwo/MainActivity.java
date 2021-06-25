@@ -32,16 +32,15 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.jar.JarEntry;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private Toolbar toolbar;
-    private LinearLayoutManager layoutManager = null;
-    private RecyclerView recyclerViewUnitList;
     private ArrayList<UnitModel.Unit> unitList = null;
     private Activity activity = null;
     private CleanableEditText search;
+    private RecyclerView rvUnitList;
+    private LinearLayoutManager layoutManager = null;
     private UnitListAdapter unitListAdapter=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +48,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         activity = MainActivity.this;
         search = (CleanableEditText) findViewById(R.id.search);
+        rvUnitList = (RecyclerView) findViewById(R.id.rvUnitList);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        recyclerViewUnitList = (RecyclerView) findViewById(R.id.rvUnitList);
-        layoutManager = new LinearLayoutManager(activity, layoutManager.VERTICAL, false);
-        recyclerViewUnitList.setLayoutManager(layoutManager);
-        setRecyclerViewData();
+
         final Drawable upArrow = getResources().getDrawable(R.drawable.ic_back);
         upArrow.setColorFilter(getResources().getColor(R.color.golden), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
@@ -67,10 +64,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        try {
+        layoutManager = new LinearLayoutManager(activity, layoutManager.VERTICAL, false);
+        rvUnitList.setLayoutManager(layoutManager);
 
+        try {
             StringBuilder buf = new StringBuilder();
-            InputStream json = activity.getAssets().open("jsondata.json");
+            InputStream json = getAssets().open("jsondata.json");
 
             BufferedReader in =new BufferedReader(new InputStreamReader(json, "UTF-8"));
             String str;
@@ -80,20 +79,17 @@ public class MainActivity extends AppCompatActivity {
             }
             in.close();
 
-            JSONArray jsonArray=new JSONArray(buf.toString());
-            Log.e("Response", jsonArray.toString());
 
             Gson gson = new GsonBuilder().serializeNulls().create();
-            UnitModel gsonModel = gson.fromJson(jsonArray.toString(), UnitModel.class);
+            UnitModel gsonModel = gson.fromJson(in, UnitModel.class);
             unitList = gsonModel.getUnits();
             setRecyclerViewData();
 
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (JSONException e) {
+        }/* catch (JSONException e) {
             e.printStackTrace();
-        }
-
+        }*/
         search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -113,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void setRecyclerViewData() {
-
         unitListAdapter = new UnitListAdapter(new WeakReference<Context>(activity), unitList);
-        recyclerViewUnitList.setAdapter(unitListAdapter);
+        rvUnitList.setAdapter(unitListAdapter);
     }
 }
