@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.EmployeeViewHolder> {
+public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.UserViewHolder> {
 
     private Context context;
     private ArrayList<UnitModel.Unit> unitList = null;
@@ -29,14 +29,14 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.Employ
     }
 
     @Override
-    public EmployeeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.row_unitlist, parent, false);
-        return new EmployeeViewHolder(view);
+        return new UserViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(EmployeeViewHolder holder, int position) {
+    public void onBindViewHolder(UserViewHolder holder, int position) {
         holder.tvUnitName.setText(unitList.get(position).getName());
         holder.tvStepName.setText(unitList.get(position).getActivities().get(position).getStepName());
         holder.tvActivityName.setText(unitList.get(position).getActivities().get(position).getName());
@@ -65,11 +65,11 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.Employ
         notifyDataSetChanged();
     }
 
-    class EmployeeViewHolder extends RecyclerView.ViewHolder {
+    class UserViewHolder extends RecyclerView.ViewHolder {
 
         AppCompatTextView tvUnitName, tvStepName, tvActivityName, tvDays, tvPercentage;
 
-        EmployeeViewHolder(View itemView) {
+        UserViewHolder(View itemView) {
             super(itemView);
             tvUnitName = (AppCompatTextView) itemView.findViewById(R.id.tvUnitName);
             tvStepName = (AppCompatTextView) itemView.findViewById(R.id.tvStepName);
