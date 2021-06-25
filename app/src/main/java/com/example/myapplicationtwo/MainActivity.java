@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<UnitModel.Unit> unitList = null;
     private Activity activity = null;
     private CleanableEditText search;
-    private RecyclerView rvUnitList;
+    private RecyclerView rvUnitList=null;
     private LinearLayoutManager layoutManager = null;
     private UnitListAdapter unitListAdapter=null;
     @Override
@@ -47,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         activity = MainActivity.this;
-        search = (CleanableEditText) findViewById(R.id.search);
-        rvUnitList = (RecyclerView) findViewById(R.id.rvUnitList);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        search = (CleanableEditText) findViewById(R.id.search);
+        rvUnitList = (RecyclerView) findViewById(R.id.rvUnitList);
+        layoutManager = new LinearLayoutManager(activity, layoutManager.VERTICAL, false);
+        rvUnitList.setLayoutManager(layoutManager);
+
 
         final Drawable upArrow = getResources().getDrawable(R.drawable.ic_back);
         upArrow.setColorFilter(getResources().getColor(R.color.golden), PorterDuff.Mode.SRC_ATOP);
@@ -64,26 +67,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        layoutManager = new LinearLayoutManager(activity, layoutManager.VERTICAL, false);
-        rvUnitList.setLayoutManager(layoutManager);
 
         try {
             StringBuilder buf = new StringBuilder();
-            InputStream json = getAssets().open("jsondata.json");
+            InputStream json = getAssets().open("user_list.json");
 
             BufferedReader in =new BufferedReader(new InputStreamReader(json, "UTF-8"));
             String str;
-
             while ((str = in.readLine()) != null) {
                 buf.append(str);
             }
             in.close();
 
-
             Gson gson = new GsonBuilder().serializeNulls().create();
             UnitModel gsonModel = gson.fromJson(in, UnitModel.class);
             unitList = gsonModel.getUnits();
-            setRecyclerViewData();
+            Log.e("TRS",unitList.toString());
+            unitListAdapter = new UnitListAdapter(new WeakReference<Context>(activity), unitList);
+            rvUnitList.setAdapter(unitListAdapter);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,8 +113,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setRecyclerViewData() {
-        unitListAdapter = new UnitListAdapter(new WeakReference<Context>(activity), unitList);
-        rvUnitList.setAdapter(unitListAdapter);
-    }
 }
