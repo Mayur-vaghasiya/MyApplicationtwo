@@ -38,10 +38,12 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.UserVi
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
         holder.tvUnitName.setText(unitList.get(position).getName());
+/*
         holder.tvStepName.setText(unitList.get(position).getActivities().get(position).getStepName());
         holder.tvActivityName.setText(unitList.get(position).getActivities().get(position).getName());
         holder.tvPercentage.setText(unitList.get(position).getActivities().get(position).getCompletionStatus()+"%");
         holder.tvDays.setText(unitList.get(position).getActivities().get(position).getTotalDays());
+*/
     }
 
     @Override
